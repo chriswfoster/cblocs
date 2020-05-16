@@ -7,6 +7,7 @@ const moment = require('moment');
 const app = express();
 app.use(cors())
 app.use(express.json());
+app.use(express.static(`${__dirname}/../build`))
 const PORT = 3030;
 
 let dataObj = {
@@ -48,5 +49,9 @@ app.post('/api/addLocation', (req, res, next) => {
         if (err) return console.log('error writing file: ', err);
       });
 })
+
+app.get("*", (req, res, next) => {
+    res.sendFile(path.join(__dirname, "/../build/index.html"))
+  })
 
 app.listen(PORT, () => console.log("listening on port: ", PORT))
