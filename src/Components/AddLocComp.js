@@ -46,22 +46,22 @@ const AddLocComp = (props) => {
     return (
         <div className="flex-col-left">
             <span>Owner name:</span>
-            <input onChange={e => stateSetter(e.target.value, 'name')} className="m-btm-15" placeholder="base owner name" />
+            <input value={dataObj.name} onChange={e => stateSetter(e.target.value, 'name')} className="m-btm-15" placeholder="base owner name" />
 
             <span>X loc:</span>
-            <input onChange={e => stateSetter(e.target.value, 'x')} className="m-btm-15" placeholder="xloc"/>
+            <input value={dataObj.x} onChange={e => stateSetter(e.target.value, 'x')} className="m-btm-15" placeholder="xloc"/>
 
             <span>Y loc:</span>
-            <input onChange={e => stateSetter(e.target.value, 'y')} className="m-btm-15" placeholder="yloc"/>
+            <input value={dataObj.y} onChange={e => stateSetter(e.target.value, 'y')} className="m-btm-15" placeholder="yloc"/>
 
             <span>Hours:</span>
-            <input type="number" onChange={e => stateSetter(e.target.value, 'hours')} className="m-btm-15" placeholder="Hours"/>
+            <input value={dataObj.hours} type="number" onChange={e => stateSetter(e.target.value, 'hours')} className="m-btm-15" placeholder="Hours"/>
 
             <span>Minutes:</span>
-            <input type="number" onChange={e => stateSetter(e.target.value, 'minutes')} className="m-btm-15" placeholder="Minutes"/>
+            <input value={dataObj.minutes} type="number" onChange={e => stateSetter(e.target.value, 'minutes')} className="m-btm-15" placeholder="Minutes"/>
 
             <span>Description/notes:</span>
-            <input onChange={e => stateSetter(e.target.value, 'description')} className="m-btm-15" placeholder="Where in the box is it?"/>
+            <input value={dataObj.description} onChange={e => stateSetter(e.target.value, 'description')} className="m-btm-15" placeholder="Where in the box is it?"/>
 
             <button onClick={() => saveLocation()}>Save</button>
         </div>
