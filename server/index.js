@@ -44,6 +44,7 @@ app.post('/api/addLocation', (req, res, next) => {
     fs.writeFile('./server/dataObj.json', JSON.stringify(saveObj), function (err) {
         if (err) return console.log('error writing file: ', err);
       });
+      res.sendStatus(200)
 })
 
 app.get("*", (req, res, next) => {
