@@ -16,10 +16,12 @@ const ListComp = (props) => {
     }, [])
 
     const minHourTextFormat = (txt) => {
+        const countMinutes = moment(txt, 'YYYYMMDDHHmm').diff(moment(new Date()), 'minutes');
         if(moment(txt, 'YYYYMMDDHHmm').diff(moment(new Date()), 'minutes') > 60) {
-            return `${moment(txt, 'YYYYMMDDHHmm').diff(moment(new Date()), 'hours')} HOURS!`
+            const countHours = moment(txt, 'YYYYMMDDHHmm').diff(moment(new Date()), 'hours');
+            return `${countHours} HOURS! At ${moment(new Date()).add(countMinutes, 'minutes').format('hh:mma, MM/DD')}`
         } else {
-            return `${moment(txt, 'YYYYMMDDHHmm').diff(moment(new Date()), 'minutes')} MINUTES!`
+            return `${countMinutes} MINUTES! at ${moment(new Date()).add(countMinutes, 'minutes').format('hh:mma, MM/DD')}`
         }
     }
 
