@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+import moment from 'moment';
 
  
 const AddLocComp = (props) => {
@@ -14,7 +15,12 @@ const AddLocComp = (props) => {
 
     const saveLocation = () => {
         if(dataObj.x && dataObj.y && dataObj.minutes && dataObj.name){
-            Axios.post('http://192.168.1.100:3030/api/addLocation', dataObj)
+            let obj = dataObj
+            const now = moment(new Date());
+            const expires = now.add(dataObj.hours, 'hours').add(dataObj.minutes, 'minutes').format('YYYYMMDDHHmm')
+            console.log('expires at: ', expires)
+            obj.expires = expires;
+            Axios.post('http://192.168.1.100:3030/api/addLocation', obj)
             .then(resp => {
                 console.log("save done!");
                 setDataObj({

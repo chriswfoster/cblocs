@@ -38,10 +38,6 @@ app.get('/api/getLocations', (req, res, next) => {
 app.post('/api/addLocation', (req, res, next) => {
     console.log(req.body);
     const {body} = req;
-    const now = moment(new Date());
-    const expires = now.add(body.hours, 'hours').add(body.minutes, 'minutes').format('YYYYMMDDHHmm')
-    console.log('expires at: ', expires)
-    body.expires = expires;
     const propName = `${body.x}_${body.y}_${body.name}`;
     const saveObj = {...dataObj, [propName]: body};
     dataObj = saveObj;
