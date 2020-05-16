@@ -14,7 +14,7 @@ const AddLocComp = (props) => {
 
     const saveLocation = () => {
         if(dataObj.x && dataObj.y && dataObj.minutes && dataObj.name){
-            Axios.post('http://localhost:3030/api/addLocation', dataObj)
+            Axios.post('http://192.168.1.100:3030/api/addLocation', dataObj)
             .then(resp => {
                 console.log("save done!");
                 setDataObj({

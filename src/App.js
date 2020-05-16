@@ -10,7 +10,7 @@ function App() {
   const [list, setList] = useState([])
 
   const getList = () => {
-    Axios.get('http://localhost:3030/api/getLocations')
+    Axios.get('http://192.168.1.100:3030/api/getLocations')
     .then(resp => {
       // setList(resp.data)
       // sort((a, b) => b.date - a.date)
